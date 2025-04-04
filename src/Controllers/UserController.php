@@ -16,6 +16,7 @@ class UserController {
 
 
     public function store(): string {
+        
         validateJsonBody(['name']);
 
         $data = $GLOBALS['__json'];

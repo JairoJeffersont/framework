@@ -17,7 +17,7 @@ function responseJson(int $status, array $data): string {
 function validateJsonBody(array $requiredFields): void
 {
     if ($_SERVER['CONTENT_TYPE'] !== 'application/json') {
-        echo responseJson(415, ['error' => 'Content-Type deve ser application/json']);
+        echo responseJson(415, ['error' => 'Content-Type must be application/json']);
         exit;
     }
 
