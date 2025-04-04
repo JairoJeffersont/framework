@@ -44,6 +44,6 @@ class App {
         }
 
         
-        echo responseJson(404, ['message' => 'Route not found']);
+        echo responseJson(404, [], 'Route not found');
     }
 }

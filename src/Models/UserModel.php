@@ -2,45 +2,47 @@
 
 namespace Framework\Models;
 
-class UserModel {
-    public int $id;
-    public string $name;
+use Framework\Config\Connection;
+use PDO;
 
-    public function __construct(array $data) {
-        $this->id = $data['id'];
-        $this->name = $data['name'];
-    }
+class UserModel {
 
     public static function all(): array {
-        // Simulation (mock). Here you can later turn it into a query with PDO.
-        return [
-            new self(['id' => 1, 'name' => 'Jairo']),
-            new self(['id' => 2, 'name' => 'Maria']),
-        ];
+        $pdo = Connection::getConnection();
+
+        $stmt = $pdo->query("SELECT * FROM users");
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
     }
 
 
-    public static function find($id): ?self {
-        // Simulation (mock). Here you can later turn it into a query with PDO.
-        $users = [
-            1 => ['id' => 1, 'name' => 'Jairo'],
-            2 => ['id' => 2, 'name' => 'Maria']
-        ];
 
-        
-        if (!isset($users[$id])) {
-            return null;
-        }
 
-        return new self($users[$id]);
+    public static function find($id): array {
+        $pdo = Connection::getConnection();
+
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
     }
 
 
     public static function store(array $data): self {
-        // Simulation: Creates a new object with a fake ID
-        $novoId = rand(100, 999); // Fake ID
+        $pdo = Connection::getConnection();
+
+        $stmt = $pdo->prepare("INSERT INTO users (name) VALUES (:name)");
+        $stmt->bindParam(':name', $data['name'], PDO::PARAM_STR);
+        $stmt->execute();
+
+        $id = $pdo->lastInsertId();
+
         return new self([
-            'id' => $novoId,
+            'id' => $id,
             'name' => $data['name']
         ]);
     }

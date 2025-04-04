@@ -8,7 +8,7 @@ return function (App $app) {
 
 
     $app->get('/', function () {
-        return responseJson(200, ['status' => '200', 'message' => 'Hello, the API is working, check the documentation']);
+        return responseJson(200, [], 'Hello, the API is working, check the documentation');
     }); 
     
     foreach (glob(__DIR__ . '/api/*.php') as $arquivoRota) {
