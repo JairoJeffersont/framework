@@ -1,0 +1,19 @@
+{
+    "name": "jairo/framework",
+    "description": "A simple framework",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jairo Jefferson Teixeira Dos Santos",
+            "email": "jairojeffersont@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
