@@ -8,6 +8,7 @@ return function (App $app) {
 
     $app->get('/users', [$controller, 'listAll']);
     $app->get('/users/{id}', [$controller, 'find']);
+    $app->put('/users/{id}', [$controller, 'update']);
     $app->post('/users', [$controller, 'store']);
     $app->delete('/users/{id}', [$controller, 'delete']);
 
