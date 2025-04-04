@@ -4,6 +4,7 @@ use Framework\App;
 use Framework\Controllers\UserController;
 
 return function (App $app) {
+    
     $controller = new UserController();
 
     $app->get('/users', [$controller, 'listAll']);
@@ -11,5 +12,4 @@ return function (App $app) {
     $app->put('/users/{id}', [$controller, 'update']);
     $app->post('/users', [$controller, 'store']);
     $app->delete('/users/{id}', [$controller, 'delete']);
-
 };
