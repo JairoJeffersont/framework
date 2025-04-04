@@ -10,7 +10,7 @@ function responseJson(int $status, array $data = [], ?string $error = null): str
 
     $response = [
         'status' => $status,
-        'data' => $data // SEMPRE inclui o campo data
+        'data' => $data
     ];
 
     if ($error !== null) {
@@ -19,8 +19,6 @@ function responseJson(int $status, array $data = [], ?string $error = null): str
 
     return json_encode($response);
 }
-
-
 
 
 function validateJsonBody(array $requiredFields): void {
