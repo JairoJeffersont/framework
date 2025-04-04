@@ -1,6 +1,6 @@
 {
     "name": "jairojeffsantos/easy-framework",
-    "description": "A simple framework",
+    "description": "Um micro framework PHP criado com foco em **simplicidade**, **leveza** e **organização**. Ideal para quem quer desenvolver aplicações web modernas sem a complexidade de grandes frameworks.",
     "type": "project",
     "license": "MIT",
     "autoload": {
