@@ -8,16 +8,18 @@ function responseJson(int $status, array $data = [], ?string $error = null): str
     header('Cache-Control: no-store, no-cache, must-revalidate');
     header('Access-Control-Allow-Origin: *');
 
-    $response = ['status' => $status];
+    $response = [
+        'status' => $status,
+        'data' => $data // SEMPRE inclui o campo data
+    ];
 
     if ($error !== null) {
         $response['message'] = $error;
-    } else {
-        $response['data'] = $data;
     }
 
     return json_encode($response);
 }
+
 
 
 
