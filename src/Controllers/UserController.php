@@ -4,7 +4,6 @@ namespace Framework\Controllers;
 
 use function Framework\Utils\validateJsonBody;
 
-
 use Framework\Models\UserModel;
 use function Framework\Utils\responseJson;
 
