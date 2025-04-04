@@ -52,6 +52,20 @@ Aponte o DocumentRoot para a pasta `public/` do projeto.
 
 ---
 
+## 🔧 Configuração do .env
+
+Adicione os dados do banco de dados no seu arquivo `.env` (já incluso):
+
+```
+DB_HOST=localhost
+DB_NAME=db_name
+DB_USER=root
+DB_PASS=root
+
+```
+
+---
+
 ## 🏁 Rodando a API
 
 Se estiver usando Apache com VirtualHost, só acessar no navegador ou via Postman:
