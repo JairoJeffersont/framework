@@ -15,6 +15,14 @@ class App {
         $this->routes['POST'][$path] = $handler;
     }
 
+    public function delete(string $path, callable $handler) {
+        $this->routes['DELETE'][$path] = $handler;
+    }
+
+    public function put(string $path, callable $handler) {
+        $this->routes['PUT'][$path] = $handler;
+    }
+
     public function run() {
         $method = $_SERVER['REQUEST_METHOD'];
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
