@@ -19,6 +19,10 @@ class App {
     public function run() {
         $method = $_SERVER['REQUEST_METHOD'];
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        
+        if ($uri !== '/' && str_ends_with($uri, '/')) {
+            $uri = rtrim($uri, '/');
+        }
 
         $handler = $this->routes[$method][$uri] ?? null;
 
