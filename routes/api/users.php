@@ -7,4 +7,5 @@ return function(App $app) {
     $controller = new UserController();
 
     $app->get('/users', [$controller, 'listAll']);
+    $app->post('/users', [$controller, 'store']);
 };

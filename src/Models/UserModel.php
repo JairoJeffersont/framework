@@ -18,4 +18,13 @@ class UserModel {
             new self(['id' => 2, 'name' => 'Maria']),
         ];
     }
+
+    public static function store(array $data): self {
+        // Simulation: Creates a new object with a fake ID
+        $novoId = rand(100, 999); // ID gerado fake só pra exemplo
+        return new self([
+            'id' => $novoId,
+            'name' => $data['name']
+        ]);
+    }
 }

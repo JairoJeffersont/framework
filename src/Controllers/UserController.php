@@ -10,4 +10,16 @@ class UserController {
         $users = UserModel::all();
         return responseJson(200, $users);
     }
+
+
+    public function store(): string {
+        $payload = json_decode(file_get_contents('php://input'), true);
+            
+        $user = UserModel::store($payload);
+    
+        return responseJson(201, [
+            'id' => $user->id,
+            'name' => $user->name
+        ]);
+    }
 }
