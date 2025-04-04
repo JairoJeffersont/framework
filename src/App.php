@@ -34,8 +34,7 @@ class App {
 
         $routes = $this->routes[$method] ?? [];
 
-        foreach ($routes as $route => $handler) {
-            // Transform /users/{id} into regex
+        foreach ($routes as $route => $handler) {            
             $pattern = preg_replace('#\{(\w+)\}#', '(?P<\1>[^/]+)', $route);
             $pattern = "#^" . $pattern . "$#";
 
