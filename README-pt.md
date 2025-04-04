@@ -104,7 +104,7 @@ Retorna:
 {
   "status": 200,
   "data": {
-    "message": "Hello, the API is working, check the documentation"
+    "message": "Hello, the API is working"
   }
 }
 ```
