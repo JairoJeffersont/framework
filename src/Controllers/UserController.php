@@ -16,7 +16,7 @@ class UserController {
         $this->userModel = new UserModel();
     }
 
-    public function listAll(): string {
+    public function listAllUsers(): string {
         try {
             $users = $this->userModel->all();
 
@@ -32,7 +32,7 @@ class UserController {
         }
     }
 
-    public function find(array $params): string {
+    public function findUser(array $params): string {
         $id = $params['id'] ?? null;
 
         try {
@@ -50,7 +50,7 @@ class UserController {
         }
     }
 
-    public function store(): string {
+    public function newUser(): string {
         try {
             validateJsonBody(['name']);
             $data = $GLOBALS['__json'];
@@ -68,7 +68,7 @@ class UserController {
         }
     }
 
-    public function update(array $params): string {
+    public function updateUser(array $params): string {
         $id = $params['id'] ?? null;
 
         try {
@@ -89,7 +89,7 @@ class UserController {
         }
     }
 
-    public function delete(array $params): string {
+    public function deleteUser(array $params): string {
         $id = $params['id'] ?? null;
 
         try {

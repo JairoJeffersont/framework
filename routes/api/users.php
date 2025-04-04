@@ -4,12 +4,12 @@ use Framework\App;
 use Framework\Controllers\UserController;
 
 return function (App $app) {
-    
+
     $controller = new UserController();
 
-    $app->get('/users', [$controller, 'listAll']);
-    $app->get('/users/{id}', [$controller, 'find']);
-    $app->put('/users/{id}', [$controller, 'update']);
-    $app->post('/users', [$controller, 'store']);
-    $app->delete('/users/{id}', [$controller, 'delete']);
+    $app->get('/users', [$controller, 'listAllUsers']);
+    $app->get('/users/{id}', [$controller, 'findUser']);
+    $app->put('/users/{id}', [$controller, 'updateUser']);
+    $app->post('/users', [$controller, 'newUser']);
+    $app->delete('/users/{id}', [$controller, 'deleteUser']);
 };
