@@ -34,10 +34,6 @@ class UserController {
         ]);
     }
 
-
-
-
-
     public function store(): string {
 
         validateJsonBody(['name']);
