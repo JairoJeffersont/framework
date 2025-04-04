@@ -8,14 +8,37 @@ use Framework\Models\UserModel;
 use PDOException;
 use Exception;
 
+/**
+ * Class UserController
+ *
+ * Handles HTTP requests related to user operations,
+ * such as listing, creating, updating, and deleting users.
+ *
+ * @package Framework\Controllers
+ */
 class UserController {
 
+    /**
+     * Instance of the user model.
+     *
+     * @var UserModel
+     */
     private UserModel $userModel;
 
+    /**
+     * UserController constructor.
+     *
+     * Initializes the UserModel.
+     */
     public function __construct() {
         $this->userModel = new UserModel();
     }
 
+    /**
+     * Returns a list of all users.
+     *
+     * @return string A JSON response with the user list or error message.
+     */
     public function listAllUsers(): string {
         try {
             $users = $this->userModel->all();
@@ -32,6 +55,13 @@ class UserController {
         }
     }
 
+    /**
+     * Finds a user by ID.
+     *
+     * @param array $params Associative array containing 'id'.
+     *
+     * @return string A JSON response with the user data or error message.
+     */
     public function findUser(array $params): string {
         $id = $params['id'] ?? null;
 
@@ -50,6 +80,13 @@ class UserController {
         }
     }
 
+    /**
+     * Creates a new user.
+     *
+     * Expects a JSON body with at least the 'name' field.
+     *
+     * @return string A JSON response indicating success or failure.
+     */
     public function newUser(): string {
         try {
             validateJsonBody(['name']);
@@ -68,6 +105,13 @@ class UserController {
         }
     }
 
+    /**
+     * Updates an existing user.
+     *
+     * @param array $params Associative array containing 'id'.
+     *
+     * @return string A JSON response indicating success or failure.
+     */
     public function updateUser(array $params): string {
         $id = $params['id'] ?? null;
 
@@ -89,6 +133,13 @@ class UserController {
         }
     }
 
+    /**
+     * Deletes a user by ID.
+     *
+     * @param array $params Associative array containing 'id'.
+     *
+     * @return string A JSON response indicating success or failure.
+     */
     public function deleteUser(array $params): string {
         $id = $params['id'] ?? null;
 
