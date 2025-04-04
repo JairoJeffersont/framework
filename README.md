@@ -1,44 +1,44 @@
 # Framework PHP
 
-Um micro framework PHP criado com foco em simplicidade, leveza e organização. Ideal para quem quer desenvolver aplicações web modernas sem a complexidade de grandes frameworks.
+A micro framework PHP created with a focus on simplicity, lightness, and organization. Ideal for those who want to develop modern web applications without the complexity of large frameworks.
 
-### ✨ Funcionalidades:
-- Estrutura MVC clara e objetiva
-- Sistema de rotas simples
-- Suporte a middlewares
-- Carregamento automático de classes (autoload)
-- Fácil integração com banco de dados
+### ✨ Features:
+- Clear and straightforward MVC structure  
+- Simple routing system  
+- Middleware support  
+- Automatic class loading (autoload)  
+- Easy database integration
 
-### 🚀 Por que usar?
-- Código limpo e fácil de entender
-- Ótimo para estudos ou projetos pequenos/médios
-- Sem dependências externas pesadas
+### 🚀 Why use it?
+- Clean and easy-to-understand code  
+- Great for learning or small/medium projects  
+- No heavy external dependencies
 
-## ✅ Requisitos
+## ✅ Requirements
 
-- PHP >= 8.0
-- Composer
-- Apache (com suporte a `.htaccess`)
-- Extensão `mbstring` habilitada
+- PHP >= 8.0  
+- Composer  
+- Apache (with `.htaccess` support)  
+- `mbstring` extension enabled
 
 ---
 
-## 🚀 Instalação
+## 🚀 Installation
 
-1. Clone o repositório:
+1. Clone the repository:
 
 ```bash
-git clone https://github.com/JairoJeffersont/framework.git seu-projeto
-cd seu-projeto
+git clone https://github.com/JairoJeffersont/framework.git your-project
+cd your-project
 ```
 
-2. Instale as dependências via Composer:
+2. Install the dependencies via Composer:
 
 ```bash
 composer install
 ```
 
-3. (Opcional) Gere o autoload manualmente se necessário:
+3. (Optional) Generate the autoload manually if needed:
 
 ```bash
 composer dump-autoload
@@ -46,11 +46,11 @@ composer dump-autoload
 
 ---
 
-## 🔧 Configuração do Apache
+## 🔧 Apache Configuration
 
-Certifique-se que o Apache tem o `mod_rewrite` habilitado.
+Make sure Apache has `mod_rewrite` enabled.
 
-Adicione no seu `.htaccess` (já incluso):
+Add the following to your `.htaccess` file (already included):
 
 ```apacheconf
 RewriteEngine On
@@ -58,13 +58,13 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [QSA,L]
 ```
 
-Aponte o DocumentRoot para a pasta `public/` do projeto.
+Point the DocumentRoot to the project's public/ folder.
 
 ---
 
-## 🔧 Configuração do .env
+## 🔧 .env Configuration
 
-Adicione os dados do banco de dados no seu arquivo `.env` (já incluso):
+Add your database details to the `.env` file (already included):
 
 ```
 DB_HOST=localhost
@@ -75,15 +75,15 @@ DB_PASS=root
 
 ---
 
-## 🏁 Rodando a API
+## 🏁 Running the API
 
-Se estiver usando Apache com VirtualHost, só acessar no navegador ou via Postman:
+If you're using Apache with a VirtualHost, just access it via browser or Postman:
 
 ```
 GET http://localhost/
 ```
 
-Ou usar o servidor embutido do PHP:
+Or use PHP's built-in server:
 
 ```bash
 php -S localhost:8000 -t public
@@ -91,15 +91,15 @@ php -S localhost:8000 -t public
 
 ---
 
-## 🧪 Exemplos de Rotas
+## 🧪 Route Examples
 
-### 📦 Status da API
+### 📦 API Status
 
 ```http
 GET /
 ```
 
-Retorna:
+Return:
 ```json
 {
   "status": 200,
@@ -111,7 +111,7 @@ Retorna:
 
 ---
 
-### 👥 Listar usuários
+### 👥 List users
 
 ```http
 GET /users
@@ -119,7 +119,7 @@ GET /users
 
 ---
 
-### ✍️ Criar usuário 
+### ✍️ Create new user 
 
 ```http
 POST /users
@@ -133,6 +133,8 @@ Content-Type: application/json
 ---
 
 
-## 📃 Licença
+## 📝 License
+
+This project is licensed under the **MIT License** – feel free to use, modify, and distribute it as you like.
 
 MIT © [Jairo Jefferson](mailto:jairojeffersont@gmail.com)
