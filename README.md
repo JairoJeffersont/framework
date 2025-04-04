@@ -1,6 +1,6 @@
 # Framework PHP
 
-Um micro framework PHP criado com foco em **simplicidade**, **leveza** e **organização**. Ideal para quem quer desenvolver aplicações web modernas sem a complexidade de grandes frameworks.
+Um micro framework PHP criado com foco em simplicidade, leveza e organização. Ideal para quem quer desenvolver aplicações web modernas sem a complexidade de grandes frameworks.
 
 ### ✨ Funcionalidades:
 - Estrutura MVC clara e objetiva
