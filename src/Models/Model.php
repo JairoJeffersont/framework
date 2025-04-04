@@ -59,5 +59,5 @@ class Model {
         $stmt = $pdo->prepare("DELETE FROM {$this->table} WHERE id = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         return $stmt->execute();
-    }
+    }    
 }
