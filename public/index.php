@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../src/Utils/helpers.php'; //
+require __DIR__ . '/../src/Utils/helpers.php';
 
 
 use Framework\App;
