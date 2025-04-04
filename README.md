@@ -119,14 +119,14 @@ GET /users
 
 ---
 
-### ✍️ Criar usuário (exemplo para futuro)
+### ✍️ Criar usuário 
 
 ```http
 POST /users
 Content-Type: application/json
 
 {
-  "nome": "Jairo"
+  "name": "Jairo"
 }
 ```
 
