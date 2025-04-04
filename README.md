@@ -109,33 +109,6 @@ Content-Type: application/json
 
 ---
 
-### 📁 Enviar arquivos
-
-```http
-POST /api/upload
-Content-Type: multipart/form-data
-file: [arquivo]
-```
-
----
-
-## 📁 Estrutura de Pastas
-
-```
-.
-├── public/           # Entrada principal (index.php)
-├── routes/           # Definição de rotas (modularizadas)
-│   └── api/
-├── src/
-│   ├── App.php       # Núcleo do framework
-│   ├── Controllers/  # Controllers REST
-│   ├── Models/       # Modelos de dados
-│   └── Utils/        # Helpers e funções úteis
-├── composer.json
-└── README.md
-```
-
----
 
 ## 📃 Licença
 
