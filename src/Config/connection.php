@@ -7,8 +7,6 @@ use PDOException;
 use Dotenv\Dotenv;
 use function Framework\Utils\responseJson;
 
-
-
 class Connection {
 
     private static ?PDO $connection = null;
