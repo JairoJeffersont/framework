@@ -19,9 +19,26 @@ class UserModel {
         ];
     }
 
+
+    public static function find($id): ?self {
+        // Simulation (mock). Here you can later turn it into a query with PDO.
+        $users = [
+            1 => ['id' => 1, 'name' => 'Jairo'],
+            2 => ['id' => 2, 'name' => 'Maria']
+        ];
+
+        
+        if (!isset($users[$id])) {
+            return null;
+        }
+
+        return new self($users[$id]);
+    }
+
+
     public static function store(array $data): self {
         // Simulation: Creates a new object with a fake ID
-        $novoId = rand(100, 999); // ID gerado fake só pra exemplo
+        $novoId = rand(100, 999); // Fake ID
         return new self([
             'id' => $novoId,
             'name' => $data['name']

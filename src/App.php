@@ -4,7 +4,6 @@ namespace Framework;
 
 use function Framework\Utils\responseJson;
 
-
 class App {
     private array $routes = [];
 
@@ -19,17 +18,32 @@ class App {
     public function run() {
         $method = $_SERVER['REQUEST_METHOD'];
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
         
         if ($uri !== '/' && str_ends_with($uri, '/')) {
             $uri = rtrim($uri, '/');
         }
 
-        $handler = $this->routes[$method][$uri] ?? null;
+        $routes = $this->routes[$method] ?? [];
 
-        if ($handler) {
-            echo $handler();
-        } else {
-            echo responseJson(200, ['status' => '404', 'message' => 'route not found']);
+        foreach ($routes as $route => $handler) {
+            // Transform /users/{id} into regex
+            $pattern = preg_replace('#\{(\w+)\}#', '(?P<\1>[^/]+)', $route);
+            $pattern = "#^" . $pattern . "$#";
+
+            if (preg_match($pattern, $uri, $matches)) {
+                $params = array_filter(
+                    $matches,
+                    fn($key) => is_string($key),
+                    ARRAY_FILTER_USE_KEY
+                );
+
+                echo $handler($params);
+                return;
+            }
         }
+
+        
+        echo responseJson(404, ['message' => 'Rota não encontrada']);
     }
 }
