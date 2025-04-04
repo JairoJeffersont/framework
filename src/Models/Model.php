@@ -12,11 +12,23 @@ class Model {
         $this->table = $table;
     }
 
-    public function all(): array {
+    public function all(string $orderBy = 'id', string $order = 'ASC'): array {
         $pdo = Connection::getConnection();
-        $stmt = $pdo->query("SELECT * FROM {$this->table}");
+
+        $allowedOrders = ['ASC', 'DESC'];
+        $order = strtoupper($order);
+        if (!in_array($order, $allowedOrders)) {
+            $order = 'ASC';
+        }
+
+        $orderBy = preg_replace('/[^a-zA-Z0-9_]/', '', $orderBy);
+
+        $sql = "SELECT * FROM {$this->table} ORDER BY {$orderBy} {$order}";
+        $stmt = $pdo->query($sql);
+
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
     public function find(string $column, int $value): array|false {
         $pdo = Connection::getConnection();
@@ -59,5 +71,5 @@ class Model {
         $stmt = $pdo->prepare("DELETE FROM {$this->table} WHERE id = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         return $stmt->execute();
-    }    
+    }
 }
