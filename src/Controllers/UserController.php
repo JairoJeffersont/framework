@@ -27,7 +27,7 @@ class UserController {
         }
     }
 
-    
+
     public function find(array $params): string {
         $id = $params['id'] ?? null;
 

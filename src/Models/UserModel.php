@@ -32,18 +32,11 @@ class UserModel {
     }
 
 
-    public static function store(array $data): self {
+    public static function store(array $data): bool|array {
         $pdo = Connection::getConnection();
 
         $stmt = $pdo->prepare("INSERT INTO users (name) VALUES (:name)");
         $stmt->bindParam(':name', $data['name'], PDO::PARAM_STR);
-        $stmt->execute();
-
-        $id = $pdo->lastInsertId();
-
-        return new self([
-            'id' => $id,
-            'name' => $data['name']
-        ]);
+        return $stmt->execute();
     }
 }
