@@ -18,7 +18,7 @@ Um micro framework PHP simples, leve e 100% RESTful, feito do zero para estudos,
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-projeto.git
+git clone https://github.com/JairoJeffersont/framework.git
 cd seu-projeto
 ```
 
