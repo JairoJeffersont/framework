@@ -75,7 +75,7 @@ class UserController {
             validateJsonBody(['name']);
             $data = $GLOBALS['__json'];
 
-            $updated = $this->userModel->update((int)$id, $data);
+            $updated = $this->userModel->update('id', (int)$id, $data);
 
             if (!$updated) {
                 return responseJson(404, [], 'User not found or not updated.');

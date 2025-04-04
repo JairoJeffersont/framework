@@ -40,11 +40,11 @@ class Model {
         return $stmt->execute();
     }
 
-    public function update(int $id, array $data): bool {
+    public function update(string $column, int $id, array $data): bool {
         $pdo = Connection::getConnection();
         $set = implode(", ", array_map(fn($key) => "$key = :$key", array_keys($data)));
 
-        $stmt = $pdo->prepare("UPDATE {$this->table} SET {$set} WHERE id = :id");
+        $stmt = $pdo->prepare("UPDATE {$this->table} SET {$set} WHERE {$column} = :id");
         $stmt->bindValue(":id", $id, PDO::PARAM_INT);
 
         foreach ($data as $key => $value) {
