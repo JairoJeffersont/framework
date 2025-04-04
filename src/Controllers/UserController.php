@@ -2,7 +2,7 @@
 
 namespace Framework\Controllers;
 
-use Framework\Middlewares\JsonBodyValidator;
+use function Framework\Utils\validateJsonBody;
 
 
 use Framework\Models\UserModel;
@@ -16,7 +16,7 @@ class UserController {
 
 
     public function store(): string {
-        JsonBodyValidator::handle(['name']); // 👈 checa campos obrigatórios
+        validateJsonBody(['name']);
 
         $data = $GLOBALS['__json'];
 

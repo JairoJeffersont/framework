@@ -12,3 +12,28 @@ function responseJson(int $status, array $data): string {
         'data' => $data
     ]);
 }
+
+
+function validateJsonBody(array $requiredFields): void
+{
+    if ($_SERVER['CONTENT_TYPE'] !== 'application/json') {
+        echo responseJson(415, ['error' => 'Content-Type deve ser application/json']);
+        exit;
+    }
+
+    $input = json_decode(file_get_contents('php://input'), true);
+
+    if (!is_array($input)) {
+        echo responseJson(400, ['error' => 'Invalid or empty JSO']);
+        exit;
+    }
+
+    foreach ($requiredFields as $field) {
+        if (!isset($input[$field]) || empty(trim($input[$field]))) {
+            echo responseJson(422, ['error' => "Required field: {$field}"]);
+            exit;
+        }
+    }
+
+    $GLOBALS['__json'] = $input;
+}
